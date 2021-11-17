@@ -1,0 +1,71 @@
+{
+  "name": "webextension-template",
+  "version": "1.0.0",
+  "version_name": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predev": "rimraf dist",
+    "dev": "webpack --config webpack.dev.ts --progress",
+    "prebuild": "rimraf dist",
+    "build": "webpack --config webpack.prod.ts --progress",
+    "reflect-version": "run-s reflect-version:run reflect-version:eslint reflect-version:prettier",
+    "reflect-version:run": "ts-node ./scripts/reflect-version.ts",
+    "reflect-version:eslint": "eslint ./src/manifest.json --fix",
+    "reflect-version:prettier": "prettier --check ./src/manifest.json --write",
+    "postreflect-version": "npm install",
+    "prepackage": "rimraf package",
+    "package": "ts-node ./scripts/archive.ts",
+    "package-all": "run-s build package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YabPaseri/webextension-template.git"
+  },
+  "author": "YabPaseri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YabPaseri/webextension-template/issues"
+  },
+  "homepage": "https://github.com/YabPaseri/webextension-template#readme",
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/archiver": "^5.1.1",
+    "@types/copy-webpack-plugin": "^8.0.1",
+    "@types/mini-css-extract-plugin": "^2.4.0",
+    "@types/node": "^16.11.7",
+    "@types/sass": "^1.43.0",
+    "@types/webextension-polyfill": "^0.8.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "archiver": "^5.3.0",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "webextension-polyfill": "^0.8.0",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.3",
+    "core-js": "^3.19.1"
+  }
+}

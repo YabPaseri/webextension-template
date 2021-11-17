@@ -1,0 +1,26 @@
+{
+	"manifest_version": 2,
+	"name": "WebExtension Template",
+	"version": "1.0.0",
+	"version_name": "1.0.0-template",
+	"description": "WebExtension template",
+	"icons": {
+		"16": "./images/icon16.png",
+		"32": "./images/icon32.png",
+		"48": "./images/icon48.png",
+		"128": "./images/icon128.png"
+	},
+	"author": "YabPaseri",
+	"permissions": ["storage"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"js": ["content-script.js"],
+			"css": ["content-script.css"]
+		}
+	]
+}
